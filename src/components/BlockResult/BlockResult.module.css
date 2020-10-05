@@ -1,0 +1,46 @@
+.content {
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-top: 1px solid gray;
+    border-radius: 5px 5px 0 0;
+    width: 90%;
+}
+.contentTitle {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 4px solid gray;
+    font-weight: 600;
+}
+.contentTitle div {
+    width: 33.333333333%;
+    text-align: center;
+    border-right: 1px solid gray;
+}
+.contentTitle div:last-child {
+    border-right: none;
+}
+.transictionList {
+    max-height: 200px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+}
+.transictionItem {
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-around;
+}
+.transictionItem div {
+    width: 33.333333333%;
+    text-align: center;
+}
+.transictionItem div:last-child {
+    border-right: none;
+}
+.result {
+    text-align: right;
+    padding-right: 5px;
+}
+.result span {
+    font-weight: 600;
+}

@@ -1,0 +1,11 @@
+.BlockControl {
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 0 0 5px 5px;
+}
+.BlockControl button {
+    margin: 5px;
+    cursor: pointer;
+}
