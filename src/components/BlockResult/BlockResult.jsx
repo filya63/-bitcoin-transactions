@@ -1,50 +1,29 @@
-import React, {useEffect, useState} from "react";
-import classes from "./BlockResult.module.css";
+import React from "react";
+import {Content, ContentTitle, ContentTitleItem, TransictionList, TransictionItem, TransictionItemData, Result} from '../../styled/BlockResult';
 
-const BlockResult = () => {
-  const state = {
-    result: 1054320
-  };
-  const [transictions, setTransictions] = useState([]);
-  useEffect(() => {
-    const socet = new WebSocket("wss://ws.blockchain.info/inv");
-    socet.onopen = function () {
-      socet.send(JSON.stringify({ op: "unconfirmed_sub" })); // отправляем серверу данные в json формате, на что подписываемся
-    };
-    socet.onmessage = function (response) { // при получении нового меседжа
-      const data = JSON.parse(response.data);
-      const from = data.x.inputs[0].prev_out.addr; // от кого транзакция
-      const sum = data.x.inputs[0].prev_out.value; // сумма
-      const where = data.x.out[0].addr; // кому перевод
-      const newPost = transictions.push({from, sum, where});
-      setTransictions([...transictions, newPost]);
-      console.log(transictions)
-      /* console.log(`От кого: ${from}, кому: ${where} сумма: ${sum}`); */
-    };
-    
-  });
+const BlockResult = (props) => {
   return (
-    <div className={classes.content}>
-      <div className={classes.contentTitle}>
-        <div>От кого:</div>
-        <div>Кому:</div>
-        <div>Сумма:</div>
-      </div>
-      <div className={classes.transictionList}>
-        {transictions.map((item, index) => {
+    <Content>
+      <ContentTitle>
+        <ContentTitleItem>От кого:</ContentTitleItem>
+        <ContentTitleItem>Кому:</ContentTitleItem>
+        <ContentTitleItem>Сумма:</ContentTitleItem>
+      </ContentTitle>
+      <TransictionList>
+        {props.transictions.map((item, index) => {
           return (
-            <div key={index} className={classes.transictionItem}>
-              <div>{item.from}</div>
-              <div>{item.where}</div>
-              <div>{item.sum}</div>
-            </div>
+            <TransictionItem key={index}>
+              <TransictionItemData>{item.from}</TransictionItemData>
+              <TransictionItemData>{item.where}</TransictionItemData>
+              <TransictionItemData>{item.sum}</TransictionItemData>
+            </TransictionItem>
           );
         })}
-      </div>
-      <div className={classes.result}>
-        <span>Сумма всех транзакций:</span> {state.result}
-      </div>
-    </div>
+      </TransictionList>
+      <Result>
+        <span>Сумма всех транзакций:</span> {props.result}
+      </Result>
+    </Content>
   );
 };
 

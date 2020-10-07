@@ -1,24 +1,13 @@
 import React from 'react';
-import classes from './BlockControl.module.css';
+import {ControlPanelBtn, ControlPanel} from '../../styled/BlockControl';
 
-const BlockControl = () => {
-    const state = {
-        subscribe() {
-            console.log('Вы подписались');
-        },
-        stop() {
-            console.log('Отписались')
-        },
-        drop() {
-            console.log('Все данные удалены')
-        }
-    }
+const BlockControl = (props) => {
     return (
-        <div className={classes.BlockControl}>
-            <button onClick={state.subscribe}>Запуск</button>
-            <button onClick={state.stop}>Остановка</button>
-            <button onClick={state.drop}>Сброс</button>
-        </div>
+        <ControlPanel>
+            <ControlPanelBtn onClick={props.subscribe}>Запуск</ControlPanelBtn>
+            <ControlPanelBtn onClick={props.stop}>Остановка</ControlPanelBtn>
+            <ControlPanelBtn onClick={props.drop}>Сброс</ControlPanelBtn>
+        </ControlPanel>
     )
 }
 
