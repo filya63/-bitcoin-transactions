@@ -1,5 +1,13 @@
 import React from "react";
-import {Content, ContentTitle, ContentTitleItem, TransictionList, TransictionItem, TransictionItemData, Result} from '../../styled/BlockResult';
+import {
+  Content,
+  ContentTitle,
+  ContentTitleItem,
+  TransictionList,
+  TransictionItem,
+  TransictionItemData,
+  Result,
+} from "../../styled/BlockResult";
 
 const BlockResult = (props) => {
   return (
