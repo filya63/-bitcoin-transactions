@@ -3,7 +3,7 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 98vh;
   flex-wrap: wrap;
   margin: 0 auto;
 `;
